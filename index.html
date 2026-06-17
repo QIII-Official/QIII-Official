@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QIII — Inaugural Review 2025–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #162336;
+    --gold: #C9974A;
+    --gold-light: #E8C17A;
+    --gold-pale: #F5E8CC;
+    --cream: #FAF7F2;
+    --text: #1A1A1A;
+    --text-muted: #5A5A5A;
+    --text-light: #8A8A8A;
+    --border: #E2DDD6;
+    --white: #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); font-size:16px; line-height:1.7; }
+
+  nav {
+    position:fixed; top:0; left:0; right:0;
+    background:rgba(13,27,42,0.97); backdrop-filter:blur(8px);
+    z-index:100; padding:0 48px; height:56px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(201,151,74,0.25);
+  }
+  .nav-wordmark { font-family:'Space Mono',monospace; font-weight:700; font-size:16px; color:var(--gold); letter-spacing:0.08em; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:12px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--gold-light); }
+
+  .hero {
+    background:var(--navy); min-height:100vh;
+    display:grid; grid-template-columns:1fr 1fr;
+    padding-top:56px; overflow:hidden;
+  }
+  .hero-left {
+    display:flex; flex-direction:column; justify-content:center;
+    padding:80px 64px 80px 80px; position:relative; z-index:2;
+  }
+  .hero-eyebrow {
+    font-family:'Space Mono',monospace; font-size:10px; color:var(--gold);
+    letter-spacing:0.2em; text-transform:uppercase; margin-bottom:28px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--gold); }
+  .hero-title {
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(48px,5.5vw,80px);
+    color:var(--white); line-height:1.0; letter-spacing:-0.02em; margin-bottom:20px;
+  }
+  .hero-title .gold { color:var(--gold); }
+  .hero-subtitle {
+    font-size:16px; color:rgba(255,255,255,0.5); font-weight:300;
+    max-width:420px; line-height:1.7; margin-bottom:48px;
+  }
+  .hero-meta {
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; max-width:400px;
+  }
+  .hero-meta-item { padding:12px 16px 12px 0; border-right:1px solid rgba(255,255,255,0.07); }
+  .hero-meta-item:nth-child(even) { padding-left:16px; border-right:none; }
+  .hero-meta-label { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.18em; color:var(--gold); text-transform:uppercase; margin-bottom:3px; }
+  .hero-meta-value { font-size:13px; color:rgba(255,255,255,0.65); font-weight:400; }
+
+  .hero-right { position:relative; overflow:hidden; background:var(--navy-mid); display:flex; align-items:center; justify-content:center; }
+  .hero-right-inner { padding:60px 48px; text-align:center; }
+  .hero-right-inner .big-q { font-family:'DM Serif Display',serif; font-size:200px; color:rgba(201,151,74,0.08); line-height:1; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
+  .hero-right-inner .tagline { font-family:'DM Serif Display',serif; font-style:italic; font-size:28px; color:rgba(255,255,255,0.7); line-height:1.5; position:relative; z-index:1; }
+  .hero-right-inner .tagline-sub { font-family:'Space Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-top:24px; position:relative; z-index:1; }
+
+  .disclaimer {
+    background:var(--navy-mid); padding:40px 80px;
+    border-bottom:1px solid rgba(201,151,74,0.12);
+  }
+  .disclaimer p { font-size:12px; color:rgba(255,255,255,0.35); max-width:760px; line-height:1.7; }
+  .disclaimer p+p { margin-top:10px; }
+
+  .section { padding:88px 80px; }
+  .section-alt { background:var(--white); }
+  .section-label {
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.2em;
+    color:var(--gold); text-transform:uppercase; margin-bottom:14px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); max-width:60px; }
+  .section-heading {
+    font-family:'DM Serif Display',serif; font-size:clamp(32px,4vw,48px);
+    line-height:1.1; letter-spacing:-0.02em; margin-bottom:20px; color:var(--navy);
+  }
+  .body-text { font-size:15px; color:var(--text-muted); line-height:1.8; font-weight:300; }
+
+  .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+  .pillars { margin-top:28px; border:1px solid var(--border); }
+  .pillar { padding:22px 26px; border-bottom:1px solid var(--border); display:flex; gap:18px; align-items:flex-start; transition:background 0.2s; }
+  .pillar:last-child { border-bottom:none; }
+  .pillar:hover { background:var(--gold-pale); }
+  .pillar-icon { font-family:'Space Mono',monospace; font-size:10px; color:var(--gold); letter-spacing:0.1em; margin-top:2px; min-width:68px; font-weight:700; }
+  .pillar-text { font-size:13px; color:var(--text-muted); line-height:1.6; }
+
+  .team-section { background:var(--navy); color:var(--white); }
+  .team-section .section-heading { color:var(--white); }
+  .team-section .section-label::after { background:rgba(255,255,255,0.1); }
+
+  .team-table { width:100%; border-collapse:collapse; margin-top:40px; }
+  .team-table th {
+    font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.15em;
+    color:var(--gold); text-transform:uppercase; text-align:left;
+    padding:0 0 14px; border-bottom:1px solid rgba(201,151,74,0.25); font-weight:400;
+  }
+  .team-table td { padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); vertical-align:top; }
+  .team-table tr:last-child td { border-bottom:none; }
+  .sector-name { font-size:14px; font-weight:500; color:var(--white); }
+  .lead-name { font-size:13px; color:rgba(255,255,255,0.6); font-weight:300; }
+  .junior-row td { padding-top:28px; border-bottom:none; }
+  .junior-label { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--gold); text-transform:uppercase; margin-bottom:8px; }
+  .junior-names { font-size:13px; color:rgba(255,255,255,0.45); font-weight:300; line-height:1.9; }
+
+  .message-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start; }
+  .quote-block { background:var(--navy); padding:44px; position:relative; overflow:hidden; }
+  .quote-block::before {
+    content:'\201C'; font-family:'DM Serif Display',serif; font-size:140px;
+    color:var(--gold); opacity:0.2; position:absolute; top:-20px; left:24px; line-height:1;
+  }
+  .quote-text { font-family:'DM Serif Display',serif; font-style:italic; font-size:21px; color:var(--white); line-height:1.5; position:relative; z-index:1; }
+  .quote-author { margin-top:20px; font-size:12px; color:var(--gold); font-family:'Space Mono',monospace; letter-spacing:0.05em; }
+  .glance-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:28px; background:var(--border); }
+  .glance-item { background:var(--cream); padding:20px 18px; }
+  .glance-label { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.15em; color:var(--gold); text-transform:uppercase; margin-bottom:5px; }
+  .glance-value { font-size:14px; color:var(--text); font-weight:500; }
+
+  .sector-header {
+    background:var(--navy); padding:72px 80px;
+    display:grid; grid-template-columns:auto 1fr; gap:40px;
+    align-items:center; border-bottom:3px solid var(--gold);
+  }
+  .sector-number { font-family:'DM Serif Display',serif; font-size:88px; color:rgba(201,151,74,0.18); line-height:1; }
+  .sector-header-title { font-family:'DM Serif Display',serif; font-size:48px; color:var(--white); letter-spacing:-0.02em; }
+  .sector-header-sub { font-size:13px; color:rgba(255,255,255,0.4); margin-top:6px; font-weight:300; }
+  .hero-eyebrow-sector {
+    font-family:'Space Mono',monospace; font-size:9px; color:var(--gold);
+    letter-spacing:0.2em; text-transform:uppercase; margin-bottom:10px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-eyebrow-sector::before { content:''; display:block; width:24px; height:1px; background:var(--gold); }
+
+  .article { padding:72px 80px; background:var(--white); }
+  .article-meta {
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+    margin-bottom:48px; padding-bottom:36px; border-bottom:1px solid var(--border);
+  }
+  .article-section-title {
+    font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.2em;
+    color:var(--gold); text-transform:uppercase; margin-bottom:14px;
+    padding-bottom:9px; border-bottom:1px solid var(--border);
+  }
+  .themes-list { list-style:none; margin-top:10px; }
+  .themes-list li { font-size:13px; color:var(--text-muted); padding:7px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; align-items:baseline; font-weight:300; }
+  .themes-list li::before { content:'—'; color:var(--gold); font-size:11px; flex-shrink:0; }
+  .authors-block { margin-top:10px; }
+  .author-item { display:flex; justify-content:space-between; align-items:baseline; padding:7px 0; border-bottom:1px solid var(--border); }
+  .author-name { font-size:13px; font-weight:500; color:var(--text); }
+  .author-role { font-size:11px; color:var(--text-light); font-family:'Space Mono',monospace; letter-spacing:0.05em; }
+
+  /* Article body — single column prose */
+  .article-prose { max-width:800px; }
+  .article-prose h3 {
+    font-family:'DM Serif Display',serif; font-size:22px; color:var(--navy);
+    margin:40px 0 12px; letter-spacing:-0.01em;
+  }
+  .article-prose h4 {
+    font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.18em;
+    color:var(--gold); text-transform:uppercase; margin:28px 0 8px;
+  }
+  .article-prose p { font-size:15px; color:var(--text-muted); line-height:1.85; font-weight:300; margin-bottom:16px; }
+  .article-prose p:last-child { margin-bottom:0; }
+
+  /* Data tables */
+  .data-table { width:100%; border-collapse:collapse; margin:32px 0; font-size:13px; }
+  .data-table th { background:var(--navy); color:var(--gold); font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; padding:12px 14px; text-align:left; font-weight:400; }
+  .data-table td { padding:11px 14px; border-bottom:1px solid var(--border); color:var(--text-muted); font-weight:300; }
+  .data-table tr:nth-child(even) td { background:rgba(201,151,74,0.04); }
+  .data-table tr:last-child td { border-bottom:none; }
+  .table-caption { font-family:'Space Mono',monospace; font-size:9px; color:var(--text-light); letter-spacing:0.1em; text-transform:uppercase; margin-top:10px; }
+
+  /* Key stat callouts */
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); margin:36px 0; }
+  .stat-item { background:var(--cream); padding:24px 20px; }
+  .stat-num { font-family:'DM Serif Display',serif; font-size:32px; color:var(--navy); line-height:1; margin-bottom:6px; }
+  .stat-label { font-size:12px; color:var(--text-light); font-weight:300; }
+
+  .closing-section { background:var(--navy); padding:88px 80px; color:var(--white); }
+  .closing-section .section-heading { color:var(--white); }
+  .closing-section .section-label::after { background:rgba(255,255,255,0.1); }
+  .ack-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:44px; }
+  .ack-group-title {
+    font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.2em;
+    color:var(--gold); text-transform:uppercase; margin-bottom:16px;
+    padding-bottom:10px; border-bottom:1px solid rgba(201,151,74,0.25);
+  }
+  .ack-item { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:13px; }
+  .ack-item:last-child { border-bottom:none; }
+  .ack-name { color:rgba(255,255,255,0.75); font-weight:400; }
+  .ack-role { color:rgba(255,255,255,0.3); font-size:11px; font-weight:300; text-align:right; }
+
+  .looking-ahead {
+    background:var(--cream); padding:88px 80px;
+    display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;
+  }
+  .looking-invite { font-family:'DM Serif Display',serif; font-size:26px; color:var(--navy); line-height:1.4; letter-spacing:-0.01em; }
+  .connect-grid { display:flex; gap:2px; margin-top:36px; }
+  .connect-item { background:var(--navy); padding:18px 24px; flex:1; }
+  .connect-label { font-family:'Space Mono',monospace; font-size:9px; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:6px; }
+  .connect-value { font-size:13px; color:rgba(255,255,255,0.55); }
+
+  footer {
+    background:var(--navy); padding:36px 80px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-top:1px solid rgba(201,151,74,0.18);
+  }
+  .footer-wordmark { font-family:'Space Mono',monospace; font-weight:700; font-size:17px; color:var(--gold); }
+  .footer-tagline { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.2em; color:rgba(255,255,255,0.25); text-transform:uppercase; }
+  .footer-right { font-size:11px; color:rgba(255,255,255,0.25); text-align:right; line-height:1.9; }
+
+  .toc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); margin-top:44px; }
+  .toc-item { background:var(--white); padding:28px 24px; cursor:pointer; transition:background 0.2s; text-decoration:none; display:block; }
+  .toc-item:hover { background:var(--gold-pale); }
+  .toc-num { font-family:'DM Serif Display',serif; font-size:32px; color:var(--gold); opacity:0.45; line-height:1; margin-bottom:6px; }
+  .toc-name { font-size:15px; font-weight:500; color:var(--navy); }
+  .toc-page { font-family:'Space Mono',monospace; font-size:9px; color:var(--text-light); letter-spacing:0.1em; margin-top:6px; }
+
+  .gold-rule { height:3px; background:linear-gradient(to right, var(--gold), transparent); }
+
+  .ref-section { padding:48px 80px; background:var(--navy-mid); }
+  .ref-section h4 { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.18em; color:var(--gold); text-transform:uppercase; margin-bottom:20px; }
+  .ref-list { list-style:none; }
+  .ref-list li { font-size:11px; color:rgba(255,255,255,0.35); line-height:1.8; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .ref-list li:last-child { border-bottom:none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div><span class="nav-wordmark">QIII</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#energy">Energy</a></li>
+    <li><a href="#mining">Mining</a></li>
+    <li><a href="#manufacturing">Manufacturing</a></li>
+    <li><a href="#transportation">Transportation</a></li>
+    <li><a href="#infrastructure">Infrastructure</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Inaugural Publication · 2025–2026</div>
+    <h1 class="hero-title">
+      Queen's<br>
+      <span class="gold">Interdisciplinary</span><br>
+      Investment<br>Insights
+    </h1>
+    <p class="hero-subtitle">Investigating the intersections of technical subjects and their implications in financial markets.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="hero-meta-label">Institution</div><div class="hero-meta-value">Queen's University</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Location</div><div class="hero-meta-value">Kingston, Ontario</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Members</div><div class="hero-meta-value">16 Students</div></div>
+      <div class="hero-meta-item"><div class="hero-meta-label">Sectors</div><div class="hero-meta-value">5 Covered</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="big-q">Q</div>
+    <div class="hero-right-inner">
+      <p class="tagline" style="position:relative;z-index:1;">"Where technical depth<br>meets financial insight."</p>
+      <p class="tagline-sub" style="position:relative;z-index:1;">QIII · Inaugural Review · 2025–2026</p>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- DISCLAIMER -->
+<section class="disclaimer">
+  <p>The information in this publication is intended for educational and informational purposes only. The articles contained herein represent the independent research and opinions of QIII student members and do not constitute financial, investment, legal, or professional advice of any kind.</p>
+  <p>In no event will QIII, its members, directors, or Queen's University be liable for any loss or damages resulting from use of or reliance on the information contained in this document. The information may not be reproduced or republished without prior written consent of QIII.</p>
+</section>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section section-alt" id="contents">
+  <div class="section-label">Contents</div>
+  <h2 class="section-heading">What's Inside</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#about"><div class="toc-num">00</div><div class="toc-name">Introduction</div><div class="toc-page">About · Team · Message</div></a>
+    <a class="toc-item" href="#energy"><div class="toc-num">01</div><div class="toc-name">Energy</div><div class="toc-page">Oil, Natural Gas &amp; Renewables</div></a>
+    <a class="toc-item" href="#mining"><div class="toc-num">02</div><div class="toc-name">Mining</div><div class="toc-page">Rare Earth Elements</div></a>
+    <a class="toc-item" href="#manufacturing"><div class="toc-num">03</div><div class="toc-name">Manufacturing</div><div class="toc-page">Industry 4.0 &amp; Machine Vision</div></a>
+    <a class="toc-item" href="#transportation"><div class="toc-num">04</div><div class="toc-name">Transportation</div><div class="toc-page">Autonomy, Trade &amp; the EV Boom</div></a>
+    <a class="toc-item" href="#infrastructure"><div class="toc-num">05</div><div class="toc-name">Infrastructure</div><div class="toc-page">Alternative Housing Construction</div></a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="intro-grid">
+    <div>
+      <div class="section-label">About QIII</div>
+      <h2 class="section-heading">A New Kind of Research Publication</h2>
+      <p class="body-text">Queen's Interdisciplinary Investment Insights (QIII) is a student-run research publication at Queen's University dedicated to exploring the intersections of technical disciplines and financial markets.</p>
+      <p class="body-text" style="margin-top:14px">QIII brings together students from engineering, sciences, and business to produce rigorous technoeconomic analysis across five key sectors. Our mission is to bridge the gap between technical expertise and investment insight — producing research that is both analytically rigorous and financially relevant.</p>
+    </div>
+    <div>
+      <div class="pillars">
+        <div class="pillar"><span class="pillar-icon">ANALYZE</span><span class="pillar-text">Rigorously assess technical developments and their market implications across energy, materials, and industrial sectors.</span></div>
+        <div class="pillar"><span class="pillar-icon">EDUCATE</span><span class="pillar-text">Democratize access to technoeconomic research for the Queen's community and beyond.</span></div>
+        <div class="pillar"><span class="pillar-icon">PUBLISH</span><span class="pillar-text">Produce a high-quality annual research review that sets a new standard for undergraduate publication.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section team-section" id="team">
+  <div class="section-label" style="color:var(--gold)">Our Team</div>
+  <h2 class="section-heading">Meet the Analysts</h2>
+  <p class="body-text" style="color:rgba(255,255,255,0.45);max-width:560px">QIII is organized around five sector teams, each led by a Technical Lead and a Financial Lead, with Junior Analysts supporting the research process. Overseen by Founder &amp; Chair Sacha Giarrusso.</p>
+  <table class="team-table">
+    <thead>
+      <tr>
+        <th style="width:28%">Sector</th>
+        <th style="width:36%">Technical Lead</th>
+        <th style="width:36%">Financial Lead</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="sector-name">Energy</span></td><td><span class="lead-name">Matias Marjovsky</span></td><td><span class="lead-name">Ethan Basil</span></td></tr>
+      <tr><td><span class="sector-name">Mining</span></td><td><span class="lead-name">Brandon Scheidler</span></td><td><span class="lead-name">Ben Taylor</span></td></tr>
+      <tr><td><span class="sector-name">Manufacturing</span></td><td><span class="lead-name">Sacha Giarrusso</span></td><td><span class="lead-name">Peter Lawetz</span></td></tr>
+      <tr><td><span class="sector-name">Transportation</span></td><td><span class="lead-name">Colin Frazer</span></td><td><span class="lead-name">Sanah Currie</span></td></tr>
+      <tr><td><span class="sector-name">Infrastructure</span></td><td><span class="lead-name">Jacob Hansen</span></td><td><span class="lead-name">Graydon Macdonald</span></td></tr>
+      <tr class="junior-row">
+        <td colspan="3">
+          <div class="junior-label">Junior Analysts</div>
+          <div class="junior-names">Kylie Armstrong · Reid Vincent · Philipp Guse · Gwen Dajani · Reed Macdonald</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FOUNDER'S MESSAGE -->
+<section class="section section-alt">
+  <div class="message-grid">
+    <div>
+      <div class="section-label">Founder's Message</div>
+      <h2 class="section-heading">From the Desk of the Chair</h2>
+      <p class="body-text">QIII was founded on a simple observation: that the most valuable investment insights are often found at the intersection of deep technical knowledge and financial acumen — a combination rarely cultivated in a single undergraduate environment.</p>
+      <p class="body-text" style="margin-top:14px">This inaugural publication is our proof of concept. It demonstrates that Queen's students, when given the right structure and mandate, are capable of producing research that rivals the quality of professional industry reports. Each sector team was tasked with more than a market overview — they were asked to understand the engineering, the science, and the economics simultaneously, and to draw conclusions that neither discipline could reach alone.</p>
+      <p class="body-text" style="margin-top:14px">From the geopolitics of rare earth supply chains to the unit economics of prefabricated housing, from the IPO of SpaceX to the Canada–China EV trade deal, the five reports in this edition reflect the extraordinary range of questions that sit at the boundary of technical and financial analysis. I am proud of every member of this team and grateful to everyone who supported QIII's formation at Queen's.</p>
+      <p class="body-text" style="margin-top:14px;font-style:italic;font-size:13px">— Sacha Giarrusso, Founder &amp; Chair, QIII</p>
+    </div>
+    <div>
+      <div class="quote-block">
+        <p class="quote-text">Our goal is to be the premier undergraduate technoeconomic research publication in Canada.</p>
+        <div class="quote-author">Sacha Giarrusso · Founder &amp; Chair, QIII</div>
+      </div>
+      <div class="glance-grid">
+        <div class="glance-item"><div class="glance-label">Founded</div><div class="glance-value">2025–2026</div></div>
+        <div class="glance-item"><div class="glance-label">Members</div><div class="glance-value">16 Students</div></div>
+        <div class="glance-item"><div class="glance-label">Sectors</div><div class="glance-value">5 Covered</div></div>
+        <div class="glance-item"><div class="glance-label">Publication</div><div class="glance-value">Annual Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 01: ENERGY -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="energy">
+  <div class="sector-header">
+    <div class="sector-number">01</div>
+    <div>
+      <div class="hero-eyebrow-sector">Sector Research</div>
+      <div class="sector-header-title">Energy</div>
+      <div class="sector-header-sub">Technical Lead — Matias Marjovsky · Financial Lead — Ethan Basil · Junior Analyst — Kylie Armstrong</div>
+    </div>
+  </div>
+  <div class="article">
+    <div class="article-meta">
+      <div>
+        <div class="article-section-title">Key Themes</div>
+        <ul class="themes-list">
+          <li>Canadian oil exports under threat from Venezuelan geopolitics and US policy</li>
+          <li>Middle East conflict driving oil price spikes and inflation risk</li>
+          <li>LNG exports and AI-driven data center demand reshaping natural gas outlook</li>
+          <li>Nuclear SMRs, solar, wind, and hydrogen as Canada's renewable frontier</li>
+          <li>Record private equity activity in North American power infrastructure</li>
+        </ul>
+      </div>
+      <div>
+        <div class="article-section-title">Authors</div>
+        <div class="authors-block">
+          <div class="author-item"><span class="author-name">Matias Marjovsky</span><span class="author-role">Technical Lead</span></div>
+          <div class="author-item"><span class="author-name">Ethan Basil</span><span class="author-role">Financial Lead</span></div>
+          <div class="author-item"><span class="author-name">Kylie Armstrong</span><span class="author-role">Junior Analyst</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-prose">
+      <h3>Oil: Geopolitics and Canada's Heavy Crude Position</h3>
+      <p>Since the 1800s, oil has been the backbone of the Canadian economy. Currently, Canada is the fourth-largest oil producer globally, with 5 million barrels per day (bpd) of production. Most production comes from Western Canada, especially the Alberta oil sands (accounting for 65% of production), Saskatchewan, and offshore drilling in Newfoundland. Canada's reserves are dominant, holding the 3rd-largest oil reserves in the world, trailing only Saudi Arabia and Venezuela.</p>
+      <p>80% of Canada's oil is exported, with 97% piped to the United States. Major companies responsible for production include Canadian Natural Resources, Imperial Oil, and Suncor Energy, while pipeline giants include Enbridge and the Trans Mountain Pipeline.</p>
+      <p>However, the industry is highly cyclical and sensitive to geopolitics, and 2026 has not disappointed. In January, the United States carried out a large-scale military operation in Venezuela, capturing President Nicolás Maduro. With the U.S. now controlling Venezuela, President Trump has been attempting to incentivize American oil giants like Exxon and Shell to invest in operations there. If American oil companies were to invest significant capex in Venezuela, it would decrease the amount of heavy crude that the U.S. imports from Canada, putting downward pressure on oil prices and potentially harming Canadian bargaining power during USMCA renegotiations.</p>
+      <p>On Friday, March 27th, 2026, the United States and Israel led an attack on Iran. Missile and air strikes targeted Iranian nuclear facilities, missile bases, and military leadership. Iran's Supreme Leader Ayatollah Ali Khamenei was killed near Tehran. By Sunday, oil prices were up over 8% and continued rising. "Safe-haven" commodities like gold and silver also saw a 2% boost as investors reacted to extreme market uncertainty. President Trump predicts the war will last 4–6 weeks, providing short-term benefits to Canada as an oil exporter while passing costs to everyday Canadians at the pump.</p>
+
+      <h3>Natural Gas: LNG Exports and the AI Data Center Boom</h3>
+      <p>Canada is the world's 5th-largest natural gas producer, with approximately 19 billion cubic feet per day (bcf/d) of production. Like oil, almost all of Canada's natural gas comes from the West — British Columbia and Alberta. Canada exports roughly 45% of its natural gas, with 99% going to the United States through a deeply integrated pipeline network including NGTL, Alliance Pipeline, and Westcoast Pipeline. Major Canadian players include Tourmaline Oil, ARC Resources, and Canadian Natural Resources.</p>
+      <p>Two major themes are reshaping the natural gas industry. First, the AI boom is driving massive new data center construction. North America is home to approximately 5,700 data centers, with the number expected to rise dramatically. A single hyperscale AI data center can use 100–500 GWh of electricity per day. Natural gas accounts for 40% of grid generation. Over the next 5 years, approximately 850 new data centers could be built in North America, driving sustained incremental natural gas demand.</p>
+      <p>Second, LNG exports represent a promising avenue to expand Canada's reach amid uncertainty with the United States. LNG is natural gas cooled to -162°C, shrinking its volume by a factor of 600 and enabling ocean shipping. This would allow Canadian gas to reach Asian markets — Japan, China, South Korea, India, and Germany — for the first time, increasing Canada's bargaining power and reducing dependence on the United States.</p>
+
+      <h3>Renewables: Nuclear, Solar, Wind, and Hydrogen</h3>
+      <p>Nuclear energy is re-emerging as a vital element in Canada's long-term energy transition, especially with the development of Small Modular Reactors (SMRs). The Darlington New Nuclear Project in Ontario plans to deliver the G7's first grid-connected SMR, with commercial operation possible by 2030. The Unit 1 reactor shaft excavation is 87% complete, with the basemat foundation to be installed in summer 2026. A four-unit SMR fleet's contribution to Ontario's GDP is estimated at $35.1 billion, with continuous employment of approximately 3,700 jobs per year over a 65-year life.</p>
+      <p>The Canadian solar industry has seen consistent growth, with installed capacity increasing by more than 3 GW between 2020 and early 2026. Estimates suggest as much as 26 GW of new solar capacity will be available by 2035. Wind energy has become one of the fastest-growing sectors, with an unprecedented annual growth rate of 76% through 2025, driven by projects such as the $215 million Mesgi'g Ugju'n 2 development in Quebec. By 2025, more than 70% of new grid-connected renewable projects had some form of Indigenous ownership.</p>
+      <p>Hydrogen is evolving from theoretical clean energy solution to practical reality. In March 2026, researchers presented a new approach to PFAS manufacturing that reduces the use of iridium (a critical and costly metal) by approximately 75%, significantly reducing production costs. Electrolyzer efficiency has reached over 70%, driven by new catalyst development.</p>
+
+      <h3>Power Generation Development: A Multi-Year, Capital-Intensive Process</h3>
+      <p>Large-scale power generation or transmission projects in North America are multi-year, capital-intensive processes. From initial site prospecting to commercial operation, a single project may take five to fifteen years depending on technology, geography, and regulatory complexity. Development begins with resource assessment, followed by a permitting phase that remains the longest and most uncertain stage. In the U.S., an Environmental Impact Statement can take two to four years. Cross-border projects face additional scrutiny, requiring a Presidential Permit in the U.S. and a National Energy Board export license in Canada.</p>
+      <p>Interconnection is one of the most significant bottlenecks across North America. The average wait for a successful interconnection in the U.S. is approximately four years, with cumulative capacity in queues exceeding 2,600 GW. Before reaching financial close, a project must secure a Power Purchase Agreement (PPA) and an interconnection agreement. Utility-scale projects are typically financed through non-recourse project finance structures with capital stacks including senior secured debt (60–80% of project cost), tax equity, sponsor equity, and mezzanine debt.</p>
+
+      <h3>Private Equity in Energy Infrastructure: Record-Setting Activity</h3>
+      <p>Private capital has become a dominant force in North American power markets. Global energy, utilities, and resources M&amp;A deal values rose 27% in 2025, driven by 20 deals over $5 billion — compared to just six the prior year. Global infrastructure fundraising reached a record of nearly $200 billion in 2025, surpassing the prior high of $180 billion in 2022. Infrastructure AUM reached $1.6 trillion by mid-2025. Energy and power accounted for nearly half of 2025 infrastructure deals by value, with renewables comprising roughly two-thirds of sector-focused allocations.</p>
+
+      <div class="stat-row">
+        <div class="stat-item"><div class="stat-num">$200B</div><div class="stat-label">Global infrastructure fundraising, 2025 record</div></div>
+        <div class="stat-item"><div class="stat-num">$26.6B</div><div class="stat-label">Constellation / Calpine acquisition — largest PE power exit in two decades</div></div>
+        <div class="stat-item"><div class="stat-num">$11B</div><div class="stat-label">SunZia Wind &amp; Transmission — largest renewable project in the Western Hemisphere</div></div>
+      </div>
+
+      <h4>Landmark Transactions (2025–2026)</h4>
+      <table class="data-table">
+        <thead><tr><th>Transaction</th><th>EV</th><th>Multiple</th><th>Strategic Rationale</th></tr></thead>
+        <tbody>
+          <tr><td>Constellation / Calpine (ECP)</td><td>$26.6B</td><td>7.9x 2026E EV/EBITDA</td><td>Largest U.S. electricity producer; largest PE exit in power sector in two decades</td></tr>
+          <tr><td>NRG / LS Power</td><td>$12.0B</td><td>7.5x 2026E EV/EBITDA</td><td>~13 GW natural gas fleet; adds demand-side CPower platform</td></tr>
+          <tr><td>Vistra / Cogentrix</td><td>~$4.0B net</td><td>7.25x 2027E EV/EBITDA</td><td>5.5 GW of dispatchable gas across PJM, ISONE, ERCOT</td></tr>
+          <tr><td>Talen Energy / ECP (Cornerstone)</td><td>$3.45B</td><td>6.6x 2027E EV/EBITDA</td><td>~2.6 GW PJM gas generation; bet on load growth and capacity tightening</td></tr>
+          <tr><td>CDPQ / Innergex</td><td>C$10.0B</td><td>—</td><td>58% premium; take-private for long-term renewable development flexibility</td></tr>
+          <tr><td>Brookfield + CDPQ / Boralex</td><td>~C$9.0B</td><td>~13x 2026E EV/EBITDA</td><td>32% premium; accelerate renewable development pipeline under private ownership</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Case Study: SunZia Wind and Transmission</h3>
+      <p>SunZia Wind and Transmission, owned by Pattern Energy, is the largest renewable energy infrastructure project in the Western Hemisphere. Located across central New Mexico and south-central Arizona, it comprises a 3,500 MW wind farm with 916 turbines and a 550-mile HVDC transmission line. The combined investment totals approximately $11 billion, financed through an $8.8 billion construction and term loan facility plus a $2.25 billion tax equity term loan. When fully operational, the project will deliver up to 3,000 MW of wind energy to Arizona and California.</p>
+      <p>The project was originally conceived in 2006 as two AC transmission lines, and the development and route approval alone took 17 years. Construction is now in its advanced phase, with SunZia Wind North at 99% turbine completion and Wind South at 89%. Commercial operation is targeted for 2026, though federal litigation regarding tribal cultural sites in the San Pedro Valley introduces timeline risk. The wind farm uses 674 GE Vernova 3.6 MW turbines and 242 Vestas V163-4.5 MW turbines, incorporating the largest voltage source converter HVDC installation in the United States. The project is expected to generate $20.5 billion in total economic benefits across New Mexico and Arizona.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 02: MINING -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="mining">
+  <div class="sector-header">
+    <div class="sector-number">02</div>
+    <div>
+      <div class="hero-eyebrow-sector">Sector Research</div>
+      <div class="sector-header-title">Mining</div>
+      <div class="sector-header-sub">Technical Lead — Brandon Scheidler · Financial Lead — Ben Taylor</div>
+    </div>
+  </div>
+  <div class="article">
+    <div class="article-meta">
+      <div>
+        <div class="article-section-title">Key Themes</div>
+        <ul class="themes-list">
+          <li>China produces ~70% of global REE ore and ~85–90% of downstream processing</li>
+          <li>The "Balance Problem" creates structural economic challenges for Western producers</li>
+          <li>China's April 2025 export controls split the global REE market, driving a non-China supply premium</li>
+          <li>Canadian government deploying C$2B+ in sovereign fund and infrastructure support</li>
+          <li>Investment opportunities across Neo Performance Materials, Ucore, and Ashram</li>
+        </ul>
+      </div>
+      <div>
+        <div class="article-section-title">Authors</div>
+        <div class="authors-block">
+          <div class="author-item"><span class="author-name">Brandon Scheidler</span><span class="author-role">Technical Lead</span></div>
+          <div class="author-item"><span class="author-name">Ben Taylor</span><span class="author-role">Financial Lead</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-prose">
+      <h3>What Are Rare Earth Elements?</h3>
+      <p>Rare Earth Elements (REEs) have been a hot topic over the past year as geopolitical tensions have risen, raising questions about global supply chains. As of 2023, China produces roughly 70% of global REE ore as well as 85–90% of downstream processing. This is important because REEs are a key component in the creation of industrial permanent magnets. While China's production market share has declined in the past decade, rising interest in electric vehicles, renewable energy, and national defence have pushed REE supply chains into the spotlight. China contains just 50% of global reserves, yet controls 90% of refining — to understand why supply chains are so difficult to secure, one must first look at the unique chemical and physical nature of the elements themselves.</p>
+      <p>REEs are a group of elements including the Lanthanides (sixth row of the periodic table) as well as Yttrium (Y) and Scandium (Sc). Despite their name, REEs are not actually that rare — roughly 30,000 times rarer than common rock-forming elements like aluminum and iron, but 1,000 times less rare than Platinum Group Metals.</p>
+      <p>REEs can be separated into Light vs Heavy categories (LREEs and HREEs). LREEs are generally more common and less useful — the most common being Lanthanum (La) and Cerium (Ce), with the most useful being Neodymium (Nd) and Praseodymium (Pr). HREEs are rarer and more useful, with the most valuable being Terbium (Tb), Dysprosium (Dy), Ytterbium (Yb), and Yttrium (Y).</p>
+
+      <h3>The Balance Problem</h3>
+      <p>Classification between Heavy and Light REEs helps explain one of the largest issues in REE processing: the Balance Problem. The Balance Problem creates economic and engineering challenges from the general inverse relationship between usefulness and abundance, and the fact that most REEs naturally occur together. In order for a mine to produce 1 ton of a high-value HREE, it must also mine multiple tons of Cerium and Lanthanum — elements whose supply massively outweighs demand, with La and Ce typically constituting 80–99% of total REE content in most deposits. During chemical extraction, the presence of Ce and La inhibits extraction of more valuable REEs, often requiring the separation of over 450 tons of Cerium for every single ton of high-value heavy elements produced. REE processing already requires up to 100 steps of chemical extraction — the Balance Problem compounds this cost further.</p>
+
+      <h3>China's Infrastructure Advantage</h3>
+      <p>China has created a large centralized processing facility at Baotou, Inner Mongolia, home to the Northern China Rare Earth Group. Rather than relying on isolated, fragmented processing facilities, China routes massive volumes of mixed ore feedstocks to this single, state-integrated hub to achieve unrivaled scale. In the north, the world's single largest rare earth resource — the Bayan Obo deposit — is primarily an iron-REE deposit. Because the host rocks are already mined for large-scale steel operations, REE-rich material is essentially treated as a byproduct, absorbing a significant portion of primary mining capex that independent Western operations must bear entirely on their own.</p>
+      <p>In southern provinces like Jiangxi, China leverages ion-adsorption clay deposits, where 60–90% of valuable heavy rare earths are loosely bound to clay minerals by ionic bonds. Unlike hard-rock minerals requiring intensive thermal cracking, these ionic clays can be leached using simple, inexpensive salt solutions. By combining low-cost HREE feedstocks from the south with massive LREE volumes handled at the centralized Baotou circuit, China has established a metallurgical chokehold that keeps global market prices low and renders standalone foreign projects incredibly difficult to finance.</p>
+
+      <h3>Market Dynamics and China's Export Controls</h3>
+      <p>The global REE market was valued at approximately USD $4.20 billion in 2025 and is expected to grow to USD $10.51 billion by 2036, at a CAGR of 8.7%. The most important REEs from a financial standpoint are Nd, Pr, Dy, and Tb — used to make NdFeB permanent magnets found in EV motors, wind turbines, and defence equipment. A single EV can use 1–2 kg of NdPr magnet material. Magnets represent 41.0% of global REE revenue as of 2025. The global market is expected to process 197 kilotons of REEs in 2025, rising to 273 kilotons by 2031.</p>
+      <p>In April 2025, China introduced a system requiring government approval before exporting seven key REEs and all permanent magnet products, later expanded to cover five more elements. The result was a split market: Chinese domestic prices remained relatively stable, but prices outside China became far more volatile. NdPr oxide prices rose over 40% through 2025. Dysprosium was selling for approximately three times the Chinese quoted price in European markets by late 2025. Chinese magnet exports to the US fell 93% year-on-year in May 2025. This price gap creates a supply premium for REEs sourced outside China.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>~Price (USD/kg)</th><th>YTD Change</th><th>Primary Use</th></tr></thead>
+        <tbody>
+          <tr><td>NdPr Oxide</td><td>~$245/kg</td><td>+64% (2025)</td><td>Permanent magnets (EVs, wind turbines)</td></tr>
+          <tr><td>Dysprosium Oxide</td><td>~$400–450/kg</td><td>Down ~30% then recovering</td><td>High-heat magnets, defence</td></tr>
+          <tr><td>Terbium Oxide</td><td>~$930/kg</td><td>+105% (2025)</td><td>Magnet strength, green phosphors</td></tr>
+          <tr><td>Cerium Oxide</td><td>&lt;$5/kg</td><td>Near zero; oversupply</td><td>Catalysts, polishing (low value)</td></tr>
+          <tr><td>Lanthanum Oxide</td><td>&lt;$3/kg</td><td>Minimal</td><td>Batteries, optics (low value)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Canadian Government Support</h3>
+      <p>Canada has moved beyond small subsidies for REE projects, now acting as a direct investor and strategic partner. Key programs include: the Critical Minerals Sovereign Fund (C$2 billion, Budget 2025) allowing direct equity investments and offtake contracts; the First and Last Mile Fund (C$1.5 billion, 2026–2030) targeting infrastructure gaps for remote mining projects; a 30% Critical Mineral Exploration Tax Credit; and a C$6.4 billion Production Alliance announced under Canada's G7 Presidency in October 2025. The US Department of Defense has also become a direct funder of North American processing technology.</p>
+
+      <h3>Canadian Companies of Interest</h3>
+      <table class="data-table">
+        <thead><tr><th>Company</th><th>Ticker</th><th>Stage</th><th>Key Metric</th><th>Strategic Relevance</th></tr></thead>
+        <tbody>
+          <tr><td>Neo Performance Materials</td><td>NEO (TSX)</td><td>Producing</td><td>~$482M trailing revenue; EBITDA guidance raised to $67–71M</td><td>Only integrated mid/downstream REE processor outside China</td></tr>
+          <tr><td>Ucore Rare Metals</td><td>UCU (TSXV)</td><td>Pre-revenue / Development</td><td>US$22.4M DoD funding; CA$36.3M conditional Canadian gov't approval</td><td>RapidSX technology targeting early production 2026</td></tr>
+          <tr><td>Mont Royal Resources (Ashram)</td><td>MRZ (TSXV/ASX)</td><td>Exploration / PEA</td><td>73.2Mt @ 1.89% TREO indicated; 2015 PEA NPV est. $2.32B pretax</td><td>One of North America's largest REE deposits; NdPr-rich</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Neo Performance Materials</h4>
+      <p>Neo's 2024 revenue was approximately USD $475.8 million, down 16.75% from $571.6 million in 2023, reflecting weaker REE prices. However, 2025 showed clear recovery: Q3 2025 revenue was $122.2 million, up 9.8% year-over-year. Management raised full-year 2025 Adjusted EBITDA guidance to $67–71 million. Neo's Magnequench division is one of the only facilities outside China that can produce NdFeB bonded magnetic powder at commercial scale — exactly the product directly affected by Chinese export restrictions. In March 2026, Neo signed a major agreement with Cyclic Materials to recycle magnet scrap, helping reduce raw material sourcing dependence.</p>
+
+      <h4>Ucore Rare Metals</h4>
+      <p>Ucore's main asset is its proprietary RapidSX separation technology, designed to be more compact, modular, and energy-efficient than traditional large, fixed chemical columns. The company has secured US$22.4 million in non-repayable DoD funding, CA$36.3 million in conditional Canadian government approval, and an estimated US$15 million in Louisiana state incentives — totaling over CA$90 million in government support. The Louisiana facility is designed to separate six of the seven REEs on China's export control list. Ucore trades at a price-to-book ratio of approximately 15.8–19.9x, reflecting high forward expectations. Analyst fair value estimates range from CA$22–25 per share versus a recent market price near CA$6.46–8.53.</p>
+
+      <h4>Mont Royal Resources / Ashram Deposit</h4>
+      <p>The Ashram Rare Earth and Fluorspar Deposit in northern Quebec is one of the largest undeveloped REE deposits in North America. The NI 43-101 compliant resource estimate is 73.2 million tonnes at 1.89% TREO indicated, and 131.1 million tonnes at 1.91% TREO inferred. Approximately 21% of the REE oxide content is NdPr. A 2015 PEA estimated a pretax NPV of $2.32 billion at a 10% discount rate, a pretax IRR of 44%, and total capital costs of $763 million. The main challenge is the lack of road infrastructure — building access is estimated at approximately $300 million. Mont Royal has received CA$2.6M in conditional NRCan funding for a road access study. With a current market capitalization of approximately CA$21 million against an estimated NPV of $2.32 billion, the large gap reflects high execution risk but also substantial upside if government infrastructure commitments are realized.</p>
+
+      <h3>Conclusion</h3>
+      <p>China's control over REE production, processing, and magnet manufacturing is one of the biggest supply chain risks facing Western countries today. The 2025 export controls turned this from a long-term concern into an immediate problem, halting parts of the automotive industry, splitting global markets into separate pricing zones, and forcing governments to rethink industrial policy. Canada is well placed to respond, with significant REE reserves, world-class mining finance markets in Toronto and Vancouver, and a federal government that has put real money behind its critical minerals goals. The three companies covered show the range of investment options available — from current revenue and established processing (Neo), to high-potential technology with government backing (Ucore), to a world-class long-term resource play (Ashram). Success for all three depends on REE prices outside China staying elevated and governments continuing to fund and streamline permitting.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 03: MANUFACTURING -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="manufacturing">
+  <div class="sector-header">
+    <div class="sector-number">03</div>
+    <div>
+      <div class="hero-eyebrow-sector">Sector Research</div>
+      <div class="sector-header-title">Manufacturing</div>
+      <div class="sector-header-sub">Technical Lead — Sacha Giarrusso · Financial Lead — Peter Lawetz</div>
+    </div>
+  </div>
+  <div class="article">
+    <div class="article-meta">
+      <div>
+        <div class="article-section-title">Key Themes</div>
+        <ul class="themes-list">
+          <li>Industry 4.0 technologies — AI, machine vision, and metrology — transforming high-precision manufacturing</li>
+          <li>SpaceX leverages additive manufacturing and reusable rockets; IPO valued at $1.75–2T USD</li>
+          <li>Tesla's gigacasting and machine vision setting new benchmarks for automotive production</li>
+          <li>Terafab JV with Intel deploying High NA EUV — industry's first — for AI semiconductor production</li>
+          <li>SpaceX IPO: bull target ~$140 USD; bear target ~$80 USD; current price reflects extreme optimism</li>
+        </ul>
+      </div>
+      <div>
+        <div class="article-section-title">Authors</div>
+        <div class="authors-block">
+          <div class="author-item"><span class="author-name">Sacha Giarrusso</span><span class="author-role">Technical Lead</span></div>
+          <div class="author-item"><span class="author-name">Peter Lawetz</span><span class="author-role">Financial Lead</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-prose">
+      <p>A new wave of technologies is on the cusp of revolutionizing industrials through the employment of automation, AI, and machine learning — encapsulated within the "Industry 4.0" umbrella term. This article evaluates the employment of specific technologies and their impacts in high-precision, low-tolerance manufacturing, specifically the paired use of AI, machine vision, and permeating sensing methods to detect both surface and sub-surface defects in manufactured products.</p>
+
+      <h3>Metrology and Machine Vision</h3>
+      <p>Metrology is the science of measurements and represents a key component of manufacturing. In manufacturing metrology, measurement tools can primarily be sectioned off into two branches: contact and non-contact. Contact measurement tools such as calipers, micrometers, and Coordinate Measuring Machines (CMMs) are simple, upfront cost-effective, and both accurate and precise — but they propose drawbacks including faster rates of wear, slower measuring speeds, and the risk of damaging material surfaces.</p>
+      <p>Machine vision introduces an opportunity to conduct surface measurements more rapidly while eliminating the risk of damaging the measured object. Machine vision utilizes sensors, including broadband cameras in conjunction with software, to rapidly convert digital images into measurements. Using AI trained with large image databases, machine vision can detect surface defects rapidly without contact. This closes the loop between automated manufacturing quality control and assurance: live measurements of the manufactured product allow rapid diagnosis of quality, enabling adjustments within the manufacturing process to reach correct tolerances. Collecting large quantities of data regarding production quality also introduces opportunities to improve manufacturing processes for future products.</p>
+
+      <h3>Aerospace Sector: SpaceX</h3>
+      <p>Certain subsectors of manufacturing — including medical/biotechnology, aerospace and defense, automotive, and tech — are particularly susceptible to costly failures caused by defective manufactured products, necessitating high-precision manufacturing. A particularly relevant example involves the current ecosystem of private space exploration. Governments including the US, China, Japan, UK, and Canada have begun supporting development of private space exploration sectors through contracting private firms, maintaining competitive advantage in global space exploration without the full financial load of solely government-funded initiatives.</p>
+      <p>SpaceX currently stands as one of very few private firms with strong non-contract global revenue streams through their Starlink program, which has installed over 11,000 orbital satellites with the intention of delivering high-speed internet and cellular service globally. SpaceX has also received enormous government contracts including a $5.9 billion portion of a $13.5 billion joint Pentagon contract to support Space Force launches through 2029.</p>
+      <p>SpaceX's reusable approach to rocketry is particularly innovative. All SpaceX rockets utilize entirely liquid propellant boosters with their own control systems, allowing SpaceX to de-orbit, land, and reuse boosters for multiple missions. Beyond secondary quality considerations such as latent failures and fatigue, SpaceX utilizes advanced automated manufacturing systems including metal additive manufacturing — specifically Laser Beam Powder Bed Fusion (PBF-LB) metal AM — to produce the Raptor 3 engines used on the Starship launch vehicle.</p>
+
+      <h3>Automotive Sector: Tesla</h3>
+      <p>Tesla has substantially more transparency in their manufacturing processes and discloses the use of machine vision AI systems that constantly observe and monitor manufacturing processes. Using machine vision, Tesla extracts high-quality images of components and assemblies in conjunction with machine learning, allowing for real-time defect detection. In gigacasting specifically, X-ray inspection systems verify the internal integrity of large castings where surface inspection alone is insufficient.</p>
+      <p>Gigacasting is a form of high-pressure casting where very large machines produce massive structural parts as a single piece. Tesla consolidated more than 70 individual parts into a single rear underbody casting on certain models. The results of faster build times and lower per-unit costs prompted rapid interest from Ford, Toyota, and BYD. Tesla has also employed industrial robotics, CNC machining, and numerous other Industry 4.0 methods across its manufacturing operations.</p>
+
+      <h3>Semiconductor Sector: Terafab JV and Intel's High NA EUV</h3>
+      <p>Tesla and SpaceX share high-level management (Elon Musk as CEO/CTO of SpaceX and CEO/Board Member of Tesla) and materials engineering teams led by Charles Kuehmann (VP of Materials Engineering for both firms). Their joint venture, Terafab, aims to produce two-nanometer AI semiconductor chips in an initially 0.5 TW/year facility that can scale, powered by 1 TW/year through solar power. Terafab recently (April 23rd, 2026) announced a partnership with Intel, specifically outlining the use of Intel's 14A advanced manufacturing process — the industry's first High Numerical Aperture Extreme Ultraviolet (High NA EUV) process — which allows 8-nanometer resolution printing, 1.7× smaller than existing EUV methods.</p>
+      <p>This nano-scale manufacturing process relies heavily on machine vision and metrology. Intel has determined that up to 50% of wafer-thinning issues can be detected earlier with inline machine vision inspection compared to offline inspection, allowing the wafer to be reworked earlier and avoiding whole-wafer delamination. Machine vision allows defects to be detected as they occur, shutting down manufacturing tools at the onset of a defect, increasing product quality while saving Intel 2 million USD annually in scrap avoidance.</p>
+
+      <h3>Financial Implications: The SpaceX IPO</h3>
+      <p>The SpaceX IPO set the new bar for the largest IPO in history, aiming for a $1.75–2 trillion USD valuation. Following an IPO at a share price of $135 USD for 556 million issued shares, SpaceX raised $75 billion USD — exceeding Saudi Aramco's previous record of $29 billion USD. When trading commenced, the stock rallied 20% in a day and has continued rising above the $200 USD mark, raising SpaceX's total market capitalization above $2.5 trillion USD. The underwriting syndicate includes Morgan Stanley, Goldman Sachs, JPMorgan Chase, Bank of America, and Citigroup as active bookrunners alongside 16 other institutions.</p>
+      <p>The SpaceX S1 included the largest total addressable market in human history — $28.5 trillion USD, larger than every nation's GDP barring the US. Of this TAM, $26 trillion was attributed to AI-related initiatives and $22.7 trillion to "enterprise applications." The combined SpaceX + xAI entity following the February 2026 acquisition was valued at $1.25 trillion USD. SpaceX operated at a $5 billion USD net loss in 2025, largely driven by CapEx on AI infrastructure and the xAI acquisition, and recently refinanced its debt with a $20 billion 18-month bridge loan.</p>
+
+      <h4>Sceptical Perspective</h4>
+      <p>At current multiples of 131× EV/Revenue and 660× EV/EBITDA, SpaceX's valuation is unparalleled across all industries the company operates in. The Terafab project, while promising, will only tangibly aid the balance sheet in coming years with an unclear timeline. The structure of the IPO leaves Elon Musk as owner of all Class B shares (worth 10 votes vs. 1 for Class A), giving him an 80% majority voting right. Musk has historically demonstrated a habit of following projects he is passionate about despite the financial impact — as demonstrated by the X acquisition (75–80% decline in valuation) and the Cybertruck (84% sales miss vs. projections).</p>
+
+      <h4>Upside Perspective</h4>
+      <p>The Starlink business has grown revenues twice over in the last year and continues to show immense potential. Terafab semiconductor manufacturing presents an opportunity to increase operating margins of SpaceX and xAI operations. SpaceX launches have reached a new high this year. If Musk directs SpaceX to continue investing in financially fruitful opportunities — expanding Starlink to 100% global coverage, advancing payload launch capabilities, and building orbital data centers — the upside potential is enormous. Orbital data centers could provide environmentally and energetically preferable alternatives to terrestrial facilities, where $98 billion in U.S. projects were blocked or delayed in Q2 2025 alone due to local resistance.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Scenario</th><th>EV/Rev Multiple</th><th>Share Price (USD)</th><th>Enterprise Value</th><th>Key Assumptions</th></tr></thead>
+        <tbody>
+          <tr><td>Bull</td><td>~100×</td><td>~$140</td><td>~$1.93T</td><td>Significant forward optimism on AI infrastructure; Starlink growth continues</td></tr>
+          <tr><td>Bear</td><td>~75×</td><td>~$80</td><td>~$1.45T</td><td>Telecom revenue dependency; underdeveloped AI infrastructure; execution risk on Terafab</td></tr>
+          <tr><td>Current Market</td><td>131×</td><td>~$200+</td><td>~$2.5T+</td><td>Extreme optimism; assumes consistent QoQ growth through decade</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 04: TRANSPORTATION -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="transportation">
+  <div class="sector-header">
+    <div class="sector-number">04</div>
+    <div>
+      <div class="hero-eyebrow-sector">Sector Research</div>
+      <div class="sector-header-title">Transportation</div>
+      <div class="sector-header-sub">Technical Lead — Colin Frazer · Financial Lead — Sanah Currie · Junior Analyst — Gwen Dajani</div>
+    </div>
+  </div>
+  <div class="article">
+    <div class="article-meta">
+      <div>
+        <div class="article-section-title">Key Themes</div>
+        <ul class="themes-list">
+          <li>Canada–China EV trade deal: 49,000-unit quota at 6.1% tariff, rising to 70,000 by 2030</li>
+          <li>Autonomous vehicles stalled at Levels 2–3; regulatory fragmentation limits scale</li>
+          <li>AI in transportation: $5.53B market in 2025, growing to $34.83B by 2034 (22.9% CAGR)</li>
+          <li>North American fuel tax funding model structurally unsustainable as EV adoption accelerates</li>
+          <li>BYD investment memo: BUY with $52.00 USD target (~28% upside)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="article-section-title">Authors</div>
+        <div class="authors-block">
+          <div class="author-item"><span class="author-name">Colin Frazer</span><span class="author-role">Technical Lead</span></div>
+          <div class="author-item"><span class="author-name">Sanah Currie</span><span class="author-role">Financial Lead</span></div>
+          <div class="author-item"><span class="author-name">Gwen Dajani</span><span class="author-role">Junior Analyst</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-prose">
+      <p>Canada's transportation sector finds itself at a genuine crossroads. Battery costs have collapsed by over 90% in a decade, autonomous driving is pushing its way onto public roads, and the politics of global trade are deciding which countries get to build the next generation of vehicles. Despite all of that, Canada still falls short. It has the minerals, the clean power, and the engineers — but not the manufacturing scale, the battery capacity, or the integrated supply chains that China and Germany have built up over decades.</p>
+
+      <h3>The Promise of Autonomy</h3>
+      <p>Autonomous vehicles offer substantial potential benefits: reductions in accidents, more efficient traffic flow, expanded mobility for elderly and disabled populations, and reduced carbon footprint through optimized routing. Yet commercial deployment today is only at SAE Levels 2 and 3, where the human operator retains legal responsibility, supplemented by a small number of Level 4 robotaxi fleets operating in geofenced service areas under remote human supervision. Three areas explain why deployment has stalled at these levels.</p>
+
+      <h4>Safety Requirements</h4>
+      <p>The United Kingdom's Automated Vehicles (AV) Act 2024 is among the most comprehensive frameworks enacted to date, requiring self-driving vehicles to pass a variety of performance evaluations and reach a "minimal risk condition" in the event of automated system failure. France and Germany are also requiring advanced automated vehicles to record driving data, effective 2025. Canada is behind these countries, with only small testing programs in Ontario and British Columbia and no comprehensive national act proposed. The United States has a different problem: self-driving vehicle rules are split between the federal government and individual states, with NHTSA providing general guidance but individual states establishing their own operating rules.</p>
+
+      <h4>Liability and Data Privacy</h4>
+      <p>Self-driving cars create a major legal question: who is responsible if something goes wrong? Traditional traffic law assumes a human driver is in control. When a self-driving vehicle crashes, three liability approaches typically apply: product liability against the manufacturer or software developer; a human safety supervisor who failed to step in; and/or the company operating the vehicle fleet. Germany and the United Kingdom have already formally redefined who counts as a "driver," but Canada has not. A single robotaxi can produce more than four terabytes of sensor data per hour. New standards such as ISO/TS 5083:2025 are being developed to ensure connected vehicles handle data securely. For Canada, the import of Chinese-manufactured vehicles under the new trade deal raises questions about data access at a national scale.</p>
+
+      <h3>The Canada–China EV Trade Agreement</h3>
+      <p>Canada's 2026 EV deal emerged from an escalating agricultural tariff dispute. When Ottawa imposed a 100% tariff on Chinese-built EVs in 2024, Beijing retaliated in October 2025 by raising the tariff on Canadian canola from 84% to 90%. Because both sides were being hurt, a compromise was reached. Prime Minister Carney announced the agreement in January 2026: an annual import quota of 49,000 Chinese-built EVs into Canada at a 6.1% tariff, replacing the previous 100% rate, with permits issued in two rounds. In exchange, China lowered its tariff on Canadian canola and other agricultural goods. The quota expands to approximately 70,000 vehicles annually by 2030.</p>
+      <p>The tariff change completely transforms the economics. A Chinese-manufactured EV with a sticker price of $35,000 previously faced an effective $35,000 tariff at the 100% rate. At 6.1%, the same vehicle incurs approximately $2,135 in import duty — a figure manufacturers targeting the sub-$40,000 range can now realistically reach. Tesla and Volvo were among the first commercial winners, as both already build significant volumes in China that now qualify for the quota. The second wave is the Chinese brands themselves: BYD, Chery, and SAIC.</p>
+      <p>The deal has not been universally welcomed. Ontario Premier Doug Ford warned publicly that it risks a flood of cheap Chinese vehicles without any guarantee of equivalent investment in Canadian production. The United States has maintained its 100% tariff on Chinese EVs and signaled that vehicles entering North America via Canada may face secondary tariff treatment under USMCA.</p>
+
+      <h3>AI in Transportation</h3>
+      <p>Artificial intelligence is no longer a future-facing concept in transportation — it is an active and accelerating force. The global AI in transportation market reached $5.53 billion in 2025, and research from Precedence Research projects that figure will grow to $34.83 billion by 2034 at a CAGR of roughly 22.9%. AI-based traffic signal management pulls live data from cameras, road sensors, and GPS feeds to dynamically adjust signal timing. AI-managed public transit can reduce urban congestion by as much as 25% in optimized corridors. Predictive maintenance — using sensor data and machine learning to anticipate failures before they occur — is proving its value in transit (New York MTA's bus fleet), freight logistics, and infrastructure monitoring. Nearly half of 300 transportation decision-makers surveyed in 2025 reported AI had a significant impact on their ability to navigate peak shipping challenges.</p>
+
+      <h3>Investment Memo: BYD Co., Ltd. (HKEX: 1211)</h3>
+      <p><strong>Recommendation: BUY · Target Price: USD $52.00 · Implied Return: +28.4% from USD $40.50</strong></p>
+      <p>The recommendation rests on three independent factors. First, the Canada–China EV agreement gives BYD policy-secured access to the Canadian market for the first time. Second, the company's international expansion is accelerating across multiple continents, providing a structural margin tailwind the market is consistently underpricing. Third, BYD's vertical integration — designing and producing in-house most components that other automakers buy from external suppliers — creates a per-vehicle cost advantage that competitors with outsourced supply chains cannot replicate.</p>
+
+      <h4>Company Overview</h4>
+      <p>BYD was founded in 1995 in Shenzhen and is the world's largest EV producer by volume in 2024 and 2025, selling over 4.5 million new energy vehicles in 2025 including over 2.25 million pure BEVs. BYD exported more than 1 million vehicles in 2025, targeting 1.5 million in 2026. The company is vertically integrated across cells, motors, power semiconductors, vehicle software, and assembly. Three primary business segments: Automobiles (BEV + PHEV, 60% of revenue), Batteries &amp; Energy Storage (20%), and Mobile Handsets &amp; Electronics (12%). FY2025 revenue was RMB 804B with net profit of RMB 32.6B, though YoY net profit declined 19.0% due to domestic price competition.</p>
+
+      <h4>Investment Theses</h4>
+      <p><strong>Thesis 1 — Canadian Market Entry:</strong> The 49,000-unit annual quota represents approximately 29% of Canada's total 2024 EV sales of roughly 170,000 units. BYD's Atto 3 SUV and Seal sedan, priced in the $25,000–$31,000 range, sit in the highest-volume Canadian purchase segment. At full quota with an average vehicle price of approximately $27,000, the Canadian opportunity represents roughly $1.3 billion in annual revenue. Approximately 20 dealerships are planned across Canada in 2026. The quota expansion to 70,000 units by 2030 provides a policy-secured, visible revenue ramp.</p>
+      <p><strong>Thesis 2 — International Expansion Undervalued:</strong> BYD exported more than 1 million vehicles in 2025 and has guided to 1.5 million in 2026 — over 40% year-on-year export growth. International revenue grew from roughly 3% of total in 2021 to 14% in 2024, on track for approximately 24% by 2026. Vehicles sold internationally typically command higher average selling prices than equivalent models in China, meaning international growth functions as a direct structural margin expansion vector. The market is pricing BYD as a domestic Chinese manufacturer; in reality, it is executing the most successful international EV expansion in automotive history.</p>
+      <p><strong>Thesis 3 — Vertical Integration Cost Moat:</strong> BYD's battery cell cost is estimated at roughly $60–65 per kWh, against an industry average of approximately $110 per kWh. That gap, multiplied across a typical 60–80 kWh battery pack, produces roughly $3,000–$4,000 per vehicle in cell-level cost advantage alone. Including in-house motors, semiconductors, and integration overhead, the full per-vehicle advantage reaches approximately $6,000–$8,000. As global oversupply continues to push cathode material prices down through 2026–2027, BYD captures these savings directly. R&amp;D spending of RMB 63.4 billion in 2025 — approximately twice the company's net profit — sustains the technology pipeline.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Risk</th><th>Mitigant</th></tr></thead>
+        <tbody>
+          <tr><td>Canada–US trade friction could reverse EV concession</td><td>Deal structured as reciprocal agricultural trade; reversing it carries real domestic political cost given Prairie farming constituency</td></tr>
+          <tr><td>Brand awareness gap vs. Tesla and legacy automakers</td><td>BYD has built brand recognition from zero in UK, Norway, and Thailand using the same formal-dealer playbook now planned for Canada</td></tr>
+          <tr><td>National security reviews on Chinese-manufactured connected vehicles</td><td>BYD already segments vehicle data systems by region; EU regulatory approach is portable to Canada</td></tr>
+          <tr><td>Domestic China price war continuation</td><td>International revenue rising fast (8% to 24% of total by 2026E); overseas ASPs are higher, providing structural margin offset</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Valuation</h4>
+      <p>Our DCF framework assumes revenue growing at the segment level, with automobile revenue growing fastest through 2028 as international expansion accelerates before moderating. Gross margins held near 20% reflect BYD's vertical integration and battery cost advantage. EBITDA margins remain around 5.5–6.0% as international growth offsets domestic price competition. We apply a 9.0% WACC reflecting BYD's higher-growth EV profile, Hong Kong-listed China risk, and above-market volatility. Terminal value uses a 14.0× EV/EBITDA exit multiple. The model produces a target price of USD $52.00 per share, implying approximately 28.4% upside from the current price of USD $40.50. Bull case (16.0× exit, 8.5% WACC): ~45% upside. Bear case (12.0× exit, 10.5% WACC): still ~6% upside.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- SECTOR 05: INFRASTRUCTURE -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="infrastructure">
+  <div class="sector-header">
+    <div class="sector-number">05</div>
+    <div>
+      <div class="hero-eyebrow-sector">Sector Research</div>
+      <div class="sector-header-title">Infrastructure</div>
+      <div class="sector-header-sub">Technical Lead — Jacob Hansen · Financial Lead — Graydon Macdonald · Junior Analyst — Philipp Guse</div>
+    </div>
+  </div>
+  <div class="article">
+    <div class="article-meta">
+      <div>
+        <div class="article-section-title">Key Themes</div>
+        <ul class="themes-list">
+          <li>Canadian prefab market estimated at $5.1B, growing at 5% CAGR</li>
+          <li>CMHC: prefab reduces hard construction costs 15–25% and build time ~27%</li>
+          <li>Prefab emits 43% less CO₂ than traditional construction</li>
+          <li>Material waste reduced from ~30% (traditional) to 5–17% (prefab)</li>
+          <li>Promise Robotics opens Canada's first large-scale robotics-assisted prefab facility (Calgary, March 2025)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="article-section-title">Authors</div>
+        <div class="authors-block">
+          <div class="author-item"><span class="author-name">Jacob Hansen</span><span class="author-role">Technical Lead</span></div>
+          <div class="author-item"><span class="author-name">Graydon Macdonald</span><span class="author-role">Financial Lead</span></div>
+          <div class="author-item"><span class="author-name">Philipp Guse</span><span class="author-role">Junior Analyst</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-prose">
+      <p>With the first temporary shelters built around 400,000 years ago, housing has experienced many shifts and issues. The most prominent modern issue is shortage. The elevated strain on the housing market is causing the industry to again look at ways to reduce building time and costs — hence a growing market segment in prefab housing. This report covers past developments of prefab housing, provides a brief overview of the current market, discusses engineering and financial implications, and provides outlook to equip the reader with a rigorous understanding of the modular housing market.</p>
+
+      <h3>Historical Background</h3>
+      <p>The idea of prefabricated modular housing is not new. During the first half of the 20th century, companies attempted to capitalize on increased housing demands. These companies — including Sears, Roebuck and Co. and the Canadian Aladdin Corporation — provided partially assembled homes at a comparative premium to traditionally assembled houses. These "kits" came assembled according to the future homeowner's budget, with cheaper options providing all necessary parts and more expensive kits coming with cutout shapes ready to be assembled. Overall, catalogue homes had the advantage of providing industry-standard quality at a cheaper price point, with vertically integrated assembly reducing dependence on outside contractors. Eventually, this market declined as the Second World War reallocated building supplies, and newer technologies and a shift toward suburbs meant players ceased production during the mid-1940s.</p>
+      <p>The idea was not unique to North America. As a result of high post-war housing demand, especially in Eastern Bloc countries, quick deployable and scalable housing was necessary. Large panel-system buildings provided a solution: precast concrete walls were shipped from the factory to the construction site and assembled into multistory apartment blocks. While precast components reduced build times, a high degree of standardization meant these houses are often considered architecturally subprime — though their effect on Eastern European cities cannot be understated.</p>
+
+      <h3>Material Considerations</h3>
+      <p>The materials used in residential construction vary with location, intended use, and available capital. This report focuses on timber, structural steel, and concrete.</p>
+      <p>Timber is the most widely used material in residential construction in North America, being used in approximately 90% of homes. It has many advantages: a high strength-to-weight ratio, low cost and high availability, high sustainability, and can be modified to meet required needs. Disadvantages include vulnerability to moisture, pests, and fire, as well as the anisotropic characteristics of lumber meaning it can warp, shrink, or creep over time.</p>
+      <p>Structural steel has recently seen an increase in residential use. Its advantages include a high strength-to-weight ratio, dimensional stability, resistance to environmental factors, and predictable structural performance. Disadvantages include higher cost, poor thermal insulation, difficulty to modify, and high carbon cost in manufacturing. Concrete is used in virtually all residential builds. Its advantages include high compressive strength, resistance to environmental factors, and high thermal mass. Key disadvantages are its high carbon cost (accounting for 8% of global emissions), long working time due to formwork and curing requirements, and poor tensile strength.</p>
+
+      <h3>Historical and Projected Material Costs</h3>
+      <p>The cost of construction materials has risen substantially over the past four decades. When adjusted for inflation, the real cost increases are more moderate than nominal figures suggest, though the period after 2015 has seen significant real cost growth across all three materials.</p>
+      <p>Lumber prices have been the most volatile. In real 2025 dollars, lumber peaked at approximately $681/MBF in 1980, declined to a low of $341/MBF in 2010, spiked above $2,000/MBF in real terms during COVID-19 in 2021, and returned to approximately $620/MBF today. BC's allowable annual harvest has declined by an estimated 20–30% due to pine beetle damage and wildfires, applying modest upward pressure going forward. Structural steel prices have been influenced by global oversupply from Chinese producers and US Section 232 tariffs of 25% on Canadian steel exports. Steel reached approximately $1,850/tonne in real terms in 2022 before falling back to approximately $980/tonne. Concrete is the most stable, rising from approximately $202/m³ in 1980 to $260/m³ today, with federal carbon pricing expected to add $8–15/m³ by 2030–2035.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Year</th><th>Nominal CAD</th><th>Real 2025 CAD</th><th>Key Driver</th></tr></thead>
+        <tbody>
+          <tr><td>1980</td><td>$27,000</td><td>$99,000</td><td>Stagflation; high material and labour inflation</td></tr>
+          <tr><td>2000</td><td>$77,000</td><td>$131,000</td><td>Commodity cycle warming; floor area expands</td></tr>
+          <tr><td>2006</td><td>$141,000</td><td>$209,000</td><td>Commodity supercycle peak; labour shortage</td></tr>
+          <tr><td>2015</td><td>$226,000</td><td>$289,000</td><td>CAD weakens; import costs rise</td></tr>
+          <tr><td>2020</td><td>$346,000</td><td>$408,000</td><td>COVID onset; costs surge in H2</td></tr>
+          <tr><td>2025</td><td>$469,000</td><td>$469,000</td><td>Labour inflation dominant; tariff uncertainty</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Traditional construction cost per single-family home, national average, nominal and real 2025 CAD. Hard costs only — excludes land, soft costs, permits, and developer margin. Sources: StatCan BCPI; CMHC Housing Market Information Portal; Altus Group Canadian Cost Guide 2025.</p>
+
+      <h3>Prefabricated vs. Traditional Construction</h3>
+      <p>Traditional construction reflects a linear, site-based method where homes are built on-site sequentially from the foundation through to the interior, with inspections after each major stage. It is highly versatile and can adapt to site conditions, but has a heavy reliance on skilled manual labour, sequential delays that compound, susceptibility to weather, and greater on-site waste. From start to finish, one single detached home takes approximately 15 months to build.</p>
+      <p>Prefabricated construction takes the bulk of the building process off-site. All structural components — floors, walls, roofs — are built in modular sections, then transported on-site for assembly. This allows multiple aspects of the building to be done simultaneously: while the site is being prepared and foundation poured, construction on the main structure has already begun. Advantages include significantly decreased timeline, concurrent building, more predictable costs through bulk material purchasing, lower environmental impact, and less susceptibility to weather delays. Disadvantages include less design flexibility, transportation costs, and less familiarity with the process potentially hindering approval. Prefabricated construction is estimated to take approximately 11 months — roughly 27% less time than traditional methods.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Cost Component</th><th>Traditional</th><th>Prefab</th><th>Saving</th></tr></thead>
+        <tbody>
+          <tr><td>Hard construction cost</td><td>$469,000</td><td>$352,000–$398,000</td><td>15–25%</td></tr>
+          <tr><td>Build timeline</td><td>~15 months</td><td>~11 months</td><td>~27%</td></tr>
+          <tr><td>Interim financing cost (est.)</td><td>~$28,000</td><td>~$20,000</td><td>~$8,000</td></tr>
+          <tr><td>Material waste (by weight)</td><td>~30% of inputs</td><td>~5–17% of inputs</td><td>Up to 83%</td></tr>
+          <tr><td>All-in turnkey cost (excl. land)</td><td>$580,000–$700,000</td><td>$430,000–$560,000</td><td>$80,000–$150,000</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Sources: CMHC Housing Supply Challenge confirmed cost savings 15–25% and delivery cycles 25% shorter; Kouhirostami &amp; Chini, Modular and Offsite Construction Summit; Bank of Canada prime rate (May 2025).</p>
+
+      <h3>Environmental Benefits</h3>
+      <p>It is estimated that with traditional construction methods, about 30% of the total weight of building materials is left as waste on the construction site. The table below compares CO₂ emissions between on-site traditional construction and modular prefabricated construction:</p>
+
+      <table class="data-table">
+        <thead><tr><th></th><th>Traditional</th><th>Prefabricated</th><th>Difference</th><th>% Difference</th></tr></thead>
+        <tbody>
+          <tr><td><strong>CO₂ Emissions (Tons)</strong></td><td>98.9</td><td>56.3</td><td>42.5</td><td>43% reduction</td></tr>
+        </tbody>
+      </table>
+      <p class="table-caption">Source: Kouhirostami and Chini, Comparison of Carbon Emissions of Modular and Site-built Residential Construction, Modular and Offsite Construction Summit.</p>
+
+      <h3>Current Prefab Market and R&D Outlook</h3>
+      <p>The strained housing market has again increased interest in cheaper, quicker alternatives to traditional housing. Currently, the Canadian prefab market is estimated at $5.1 billion, growing at a 5% CAGR. Nearly half of the current valuation can be accounted for by single-family housing. At the world stage, prefab housing is set to grow at 2.6% CAGR and is valued at $15.6 billion USD.</p>
+      <p>The Canadian prefabricated home manufacturing industry generated approximately $3.8 billion CAD in revenue in 2024, growing at 5.2% per year between 2019 and 2024. The broader modular construction market in Canada is projected to grow at 5.7% per year through 2030, reaching approximately USD $3.0 billion — exceeding expected growth in overall Canadian housing starts, suggesting prefabricated construction is gaining market share. Industry operators currently achieve estimated EBITDA margins of 12–16%, expected to improve to 15–20% as production volumes increase. A key development is the opening of a 60,000 square-foot automated manufacturing facility by Promise Robotics in Calgary in March 2025 — the first large-scale robotics-assisted prefab production operation in Canada.</p>
+      <p>Federal policy has provided support. In May 2026, CMHC launched the Prefab Plus program, extending mortgage loan insurance to prefabricated and modular homes with a minimum 5% down payment. The federal government has also committed $25 billion CAD toward modular factory financing, and CMHC's Rapid Housing Initiative has funded over 10,000 units built using modular methods. The main risk to the sector is the high upfront capital requirement — prefab operators must typically purchase materials before securing a client — and provincial building code fragmentation, estimated to reduce industry growth by approximately 1.6% per year.</p>
+
+      <h3>Constraints</h3>
+      <p>Several constraints associated with prefabricated construction can be resolved with time and greater process familiarity. These include difficulties with inspections and building codes that would need modification to include prefabricated construction; high capital requirements to initialize the construction process, with materials typically needed before a client is found; and quality assurance concerns, as potential clients in both primary and secondary markets may not trust the prefabricated construction process and would need to be educated on its benefits to reverse popular perception.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gold-rule"></div>
+
+<!-- ACKNOWLEDGEMENTS -->
+<section class="closing-section" id="closing">
+  <div class="section-label" style="color:var(--gold)">Thank You</div>
+  <h2 class="section-heading">Acknowledgements</h2>
+  <div class="ack-grid">
+    <div>
+      <div class="ack-group-title">Faculty &amp; Administration</div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);font-weight:300;line-height:1.9">[Insert names of faculty advisors, department contacts, or university administrators who supported QIII's formation and ratification process at Queen's University.]</p>
+      <div class="ack-group-title" style="margin-top:36px">Industry Contacts</div>
+      <p style="font-size:12px;color:rgba(255,255,255,0.35);font-weight:300;line-height:1.9">[Insert names of industry professionals, guest speakers, or mentors who contributed expertise or guidance to the research teams.]</p>
+    </div>
+    <div>
+      <div class="ack-group-title">Research Contributors</div>
+      <div class="ack-item"><span class="ack-name">Sacha Giarrusso</span><span class="ack-role">Founder &amp; Chair · Manufacturing Technical Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Matias Marjovsky</span><span class="ack-role">Energy · Technical Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Ethan Basil</span><span class="ack-role">Energy · Financial Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Brandon Scheidler</span><span class="ack-role">Mining · Technical Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Ben Taylor</span><span class="ack-role">Mining · Financial Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Peter Lawetz</span><span class="ack-role">Manufacturing · Financial Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Colin Frazer</span><span class="ack-role">Transportation · Technical Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Sanah Currie</span><span class="ack-role">Transportation · Financial Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Jacob Hansen</span><span class="ack-role">Infrastructure · Technical Lead</span></div>
+      <div class="ack-item"><span class="ack-name">Graydon Macdonald</span><span class="ack-role">Infrastructure · Financial Lead</span></div>
+      <div style="margin-top:24px">
+        <div class="ack-group-title">Junior Analysts</div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.38);font-weight:300;line-height:2">Kylie Armstrong · Reid Vincent · Philipp Guse · Gwen Dajani · Reed Macdonald</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOKING AHEAD -->
+<section class="looking-ahead">
+  <div>
+    <div class="section-label">Future Outlook</div>
+    <h2 class="section-heading">Looking Ahead</h2>
+    <p class="body-text" style="font-size:16px">This inaugural publication marks the beginning of QIII's journey as a ratified club at Queen's University. In future editions, we aim to expand research coverage, deepen industry partnerships, and develop a mentorship network connecting our members with professionals at the intersection of technical and financial disciplines.</p>
+  </div>
+  <div>
+    <p class="looking-invite">We invite faculty, alumni, and industry professionals to engage with our work and contribute to the growth of technoeconomic research at Queen's.</p>
+    <div class="connect-grid">
+      <div class="connect-item"><div class="connect-label">Instagram</div><div class="connect-value">@qiii.official</div></div>
+      <div class="connect-item"><div class="connect-label">Institution</div><div class="connect-value">Queen's University</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div><span class="footer-wordmark">QIII</span></div>
+  <div class="footer-tagline">Analyze · Educate · Publish</div>
+  <div class="footer-right">Inaugural Review 2025–2026<br>Queen's University · Kingston, Ontario</div>
+</footer>
+
+</body>
+</html>
